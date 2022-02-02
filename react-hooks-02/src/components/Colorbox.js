@@ -22,7 +22,7 @@ function unMountNumber(value){
 
 function Colorbox() {
 
-    const [color, setColor] = useState(()=>{
+    const [color, setColor] = useState( () => {
         const initColor = localStorage.getItem('itemColor') || '#000';
         return initColor;
     });
