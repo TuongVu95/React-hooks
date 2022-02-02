@@ -21,13 +21,19 @@ function unMountNumber(value){
 }
 
 function Colorbox() {
-    const [color, setColor] = useState('#000');
+
+    const [color, setColor] = useState(()=>{
+        const initColor = localStorage.getItem('itemColor') || '#000';
+        return initColor;
+    });
     const [number, setNumber] = useState(0);
 
     function handleBoxClick() {
         //get ramdom color -> set color
         const newColor = getRandomColor();
         setColor(newColor);
+
+        localStorage.setItem('itemColor', newColor);
     }
 
     function handleRamdomNumber(){
