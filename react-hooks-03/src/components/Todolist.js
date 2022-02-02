@@ -26,15 +26,15 @@ function Todolist(props) {
     )
 }
 
-// Todolist.propTypes = {
-//     todos: PropTypes.array,
-//     onTodoClick: PropTypes.func,
-// };
+Todolist.propTypes = {
+    todos: PropTypes.array,
+    onTodoClick: PropTypes.func,
+};
 
-// Todolist.defaultProps = {
-//     todos: [],
-//     onTodoClick: null,
-// }
+Todolist.defaultProps = {
+    todos: [],
+    onTodoClick: null,
+}
 
 export default Todolist
 
