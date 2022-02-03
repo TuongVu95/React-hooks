@@ -12,6 +12,7 @@ TodoForm.defaultProps = {
 function TodoForm(props) {
     const {onSubmit} = props;
     const [value, setValue] = useState('');
+    const [value2, setValue2] = useState('');
 
     function handleValueChange(e){
         const targetInput = e.target.value;
@@ -35,6 +36,7 @@ function TodoForm(props) {
         <div>
             <form action="" onSubmit={handleSubmit}>
                 <input type="text" value={value} onChange={handleValueChange}/>
+                {/* <input type="text" value={value2}/> */}
             </form>
         </div>
     );

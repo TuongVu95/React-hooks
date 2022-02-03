@@ -1,25 +1,20 @@
 import React, { useState } from 'react'
 import Todolist from './components/Todolist';
 import TodoForm from './components/TodoForm';
+import ContentText from './components/ContentText';
 import './app.scss';
 
 function App(props) {
-  // const dataList = [
-  //   {id: 1, title: 'I love u'},
-  //   {id: 2, title: 'I"m Vux'},
-  //   {id: 3, title: 'Tran Thi Thuy Sinh'}
-  // ]
-  const [todoList, setTodoList] = useState(
-    [
-      {id: 1, title: 'I love u'},
-      {id: 2, title: 'I"m Vux'},
-      {id: 3, title: 'Tran Thi Thuy Sinh'}
-    ]
-  );
+  const dataList = [
+    {id: 1, title: 'I love u'},
+    {id: 2, title: 'I"m Vux'},
+    {id: 3, title: 'Tran Thi Thuy Sinh'}
+  ]
+  const [todoList, setTodoList] = useState(dataList);
+  const [isShow, setIsShow] = useState(false);
 
   function handleTodoClick(todo) {
-    // console.log(todo);
-    const index = todoList.findIndex((value, index, array) => value.id === todo.id );
+    const index = todoList.findIndex(value => value.id === todo.id );
 
     if(index < 0) {return};
 
@@ -40,11 +35,16 @@ function App(props) {
     setTodoList(newTodoList);
   }
 
+  function handleShowMore(value){
+    setIsShow(value);
+  }
+
   return (
     <div>
       <h1>Hello Todolist</h1>
       <TodoForm onSubmit={handleSubmit} />
       <Todolist todos = {todoList} onTodoClick={handleTodoClick}/>
+      <ContentText isShow={isShow} onClickShowMore={handleShowMore}/>
     </div>
   )
 }
