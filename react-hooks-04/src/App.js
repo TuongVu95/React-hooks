@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PostList from './components/PostList';
 import ShowUser from './components/ShowUser';
+import UseContent from './components/UseContent';
 
 function App() {
   const [data, setData] = useState([]);
@@ -9,11 +10,11 @@ function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log(count+1)
-  },[count])
+    // console.log(count + 1)
+  }, [count])
 
-  function handleClickCount(){
-    setCount(count+1) ;
+  function handleClickCount() {
+    setCount(count + 1);
   }
 
   useEffect(() => {
@@ -45,8 +46,8 @@ function App() {
         axios.get(baseURL)
           .then((res) => {
 
-              const {data} = res;
-              setUser(data);
+            const { data } = res;
+            setUser(data);
 
           })
       } catch (error) {
@@ -60,10 +61,12 @@ function App() {
   return (
     <div>
       <p>Count: {count}</p>
-    <button onClick={()=>{handleClickCount()}}>Click Count</button>
+      <button onClick={() => { handleClickCount() }}>Click Count</button>
       <PostList post={data} />
 
-      <ShowUser user={user}/>
+      <ShowUser user={user} />
+
+      <UseContent value='Có một không hai!' />
     </div>
   );
 }

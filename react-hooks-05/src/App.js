@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Children from './components/Children';
+import {Count} from './components/Count';
+
+export const CounterContext = React.createContext();
 
 function App() {
+  const valueState = 0;
+  const [number, setNumber] = useState(valueState);
+
+  function updateNumber(){
+      return setNumber(number + 1);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <CounterContext.Provider value={{
+            count: number,
+            update: () => {updateNumber()}
+          }}>
+            <Count />
+          </CounterContext.Provider>
+        <Children />
     </div>
   );
 }
 
 export default App;
+
