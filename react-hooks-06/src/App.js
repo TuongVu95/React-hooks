@@ -1,4 +1,4 @@
-import React,{useMemo, useState} from 'react';
+import React, { useMemo, useState } from 'react';
 import TodoList from './components/TodoList';
 
 function exNumber(value) {
@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <h1>{state}</h1>
       <h2>{numbers}</h2>
-      <button onClick={() => {setstate(state + 1) }}>CLick</button>
+      <button onClick={() => { setstate(state + 1) }}>CLick</button>
       <TodoList />
     </div>
   );
