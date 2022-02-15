@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function PostList(props) {
     const { post } = props;
+    // console.log("post", post)
     return (
         <ul className="post-list">
             {
